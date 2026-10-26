@@ -7,14 +7,12 @@ public class Mastermind{
    private String answer;
    private static Scanner scan = new Scanner(System.in); //one Scanner for all input
 
-  //use keyword this to write the constructor
-//pick a default list of possible Characters
+//default list of possible characters
 public Mastermind(){
    possibleCharacters = "ABCDEFG"; //default possible characters
 }
 
 public Mastermind(String str){
- //assign input here 
    possibleCharacters = str;
 }
 
@@ -110,10 +108,7 @@ public void play(){
    }
 }
 
-// private methods for testing your code.
-
-//Sets the answer to the given String
-
+//Picks a random 4 character answer
 private void generateAnswer(){
    answer = "";
    for (int i = 0; i < 4; i++) {
@@ -121,6 +116,7 @@ private void generateAnswer(){
    }
 }
 
+//Sets the answer to the given String (used for testing)
 private void setAnswer(String str){
    answer = str;
    
@@ -169,7 +165,7 @@ private void endGame(){ //Gives the prompt to play mastermind over again
 
 //Checks the answer against the input(str) and returns the appropriate feedback
 //flag equals true indicates hard play, flag equals false indicates the easy play
-//Check guess should return null if the String is the wrong length
+//Returns "null" if the String is the wrong length
 private String checkGuess(String str,boolean flag){
    String guess = "";
    if (str.length() > 4 || str.length() < 4) return "null"; //If guess length is less or more than 4 characters then return null
