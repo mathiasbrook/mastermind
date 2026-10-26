@@ -27,7 +27,7 @@ public void play(String easy, int limit){
       if (!(result.equals("null"))) { //if the guess isn't "null" print out the feedback from guess and decrement guess limit
          System.out.println(result);
          limit--;
-      }
+      } else System.out.println("Your guess has to be 4 characters long");
       System.out.println(limit + " tries left!");
       if (result.equals("$$$$")) { //if the guess is correct stop the game and reference endGame method
          System.out.println("Congratulations, you're right.");
@@ -52,7 +52,8 @@ public void play(String easy){
    String result = "";
    while (true) {
       result = checkGuess(guess,false); //checks the player's guess
-      if (!(result.equals("null"))) System.out.println(result); //if the guess isn't "null" print out the feedback from guess and decrement guess limit
+      if (!(result.equals("null"))) System.out.println(result); //if the guess isn't "null" print out the feedback from guess
+      else System.out.println("Your guess has to be 4 characters long");
       if (result.equals("$$$$")) { //if the guess is correct stop the game and reference endGame method
          System.out.println("Congratulations, you're right.");
          endGame();
@@ -74,7 +75,7 @@ public void play(int limit){
       if (!(result.equals("null"))) {//if the guess isn't "null" print out the feedback from guess and decrement guess limit
          System.out.println(result);
          limit--;
-      }
+      } else System.out.println("Your guess has to be 4 characters long");
       System.out.println(limit + " tries left!");
       if (result.equals("$$$$")) { //if the guess is correct stop the game and reference endGame method
          System.out.println("Congratulations, you're right.");
@@ -99,7 +100,8 @@ public void play(){
    String result = "";
    while (true) {
       result = checkGuess(guess,true); //checks the player's guess
-      if (!(result.equals("null"))) System.out.println(result);//if the guess isn't "null" print out the feedback from guess and decrement guess limit
+      if (!(result.equals("null"))) System.out.println(result); //if the guess isn't "null" print out the feedback from guess
+      else System.out.println("Your guess has to be 4 characters long");
       if (result.equals("$$$$")) { //if the guess is correct stop the game and reference endGame method
       System.out.println("Congratulations, you're right.");
          endGame();
