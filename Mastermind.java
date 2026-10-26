@@ -35,6 +35,7 @@ public void play(String easy, int limit){
          break;
       }
       if (!(limit > 0)) { //if there are no more guesses left stop the game and reference the endGame method
+      System.out.println("Out of guesses! The answer was " + answer);
       endGame();
       break;
       }
@@ -81,6 +82,7 @@ public void play(int limit){
          break;
       }
       if (!(limit > 0)) { //if there are no more guesses left stop the game and reference the endGame method
+         System.out.println("Out of guesses! The answer was " + answer);
          endGame();
          break;
       }
