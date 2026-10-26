@@ -147,8 +147,13 @@ private void selectGame() {
       }
       limit = gameSelect.nextInt(); //waits for another int input if previous number was invalid
    }
-   if (limit == -1) play(difficulty); //If limit is -1 play guess game with unlimited guesses
-   else play(difficulty,limit); //If limit is 1+ play guess game with limited guesses
+   if (difficulty.toLowerCase().equals("hard")) { //hard mode uses the play methods without the String
+      if (limit == -1) play(); //If limit is -1 play guess game with unlimited guesses
+      else play(limit); //If limit is 1+ play guess game with limited guesses
+   } else {
+      if (limit == -1) play(difficulty); //If limit is -1 play guess game with unlimited guesses
+      else play(difficulty,limit); //If limit is 1+ play guess game with limited guesses
+   }
    
 }
 
