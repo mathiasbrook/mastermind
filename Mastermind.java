@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Mastermind{
    private String possibleCharacters;
    private String answer;
+   private static Scanner scan = new Scanner(System.in); //one Scanner for all input
 
   //use keyword this to write the constructor
 //pick a default list of possible Characters
@@ -21,7 +22,6 @@ public Mastermind(String str){
 public void play(String easy, int limit){
    generateAnswer(); //Generates a new answer
    System.out.println("Enter your guess. Your possible characters are: " + possibleCharacters);
-   Scanner scan = new Scanner(System.in); //creates a guess scanner
    String guess = scan.next();
    String result = "";
    while (true) {
@@ -49,7 +49,6 @@ public void play(String easy, int limit){
 public void play(String easy){
    generateAnswer(); //Generates a new answer
    System.out.println("Enter your guess. Your possible characters are: " + possibleCharacters);
-   Scanner scan = new Scanner(System.in); //creates a guess scanner
    String guess = scan.next();
    String result = "";
    while (true) {
@@ -69,7 +68,6 @@ public void play(String easy){
 public void play(int limit){
    generateAnswer(); //Generates a new answer
    System.out.println("Enter your guess. Your possible characters are: " + possibleCharacters);
-   Scanner scan = new Scanner(System.in); //creates a guess scanner
    String guess = scan.next();
    String result = "";
    while (true) {
@@ -97,7 +95,6 @@ public void play(int limit){
 public void play(){
    generateAnswer(); //Generates a new answer
    System.out.println("Enter your guess. Your possible characters are: " + possibleCharacters);
-   Scanner scan = new Scanner(System.in); //creates a guess scanner
    String guess = scan.next();
    String result = "";
    while (true) {
@@ -130,22 +127,21 @@ private void setAnswer(String str){
 }
 
 private void selectGame() {
-   Scanner gameSelect = new Scanner(System.in);
    System.out.println("Select your difficulty. Type 'easy' for easy mode and 'hard' for hard mode");
-   String difficulty = gameSelect.next(); //String scan for easy and hard
+   String difficulty = scan.next(); //String scan for easy and hard
    while (true) {
       if (difficulty.toLowerCase().equals("easy") || difficulty.toLowerCase().equals("hard")) { //easy and hard are valid
          break;
       }
-      difficulty = gameSelect.next(); //waits for another string input if previous string was not "easy" or "hard"
+      difficulty = scan.next(); //waits for another string input if previous string was not "easy" or "hard"
    }
    System.out.println("Enter your guess limit. Type a number of at least 1 for the preferred amount of guesses and -1 for unlimited guesses");
-   int limit = gameSelect.nextInt(); //Int scan for guess limit
+   int limit = scan.nextInt(); //Int scan for guess limit
    while (true) {
       if (limit > 0 || limit == -1) { //Limits that are 1+ and -1 are valid
          break;
       }
-      limit = gameSelect.nextInt(); //waits for another int input if previous number was invalid
+      limit = scan.nextInt(); //waits for another int input if previous number was invalid
    }
    if (difficulty.toLowerCase().equals("hard")) { //hard mode uses the play methods without the String
       if (limit == -1) play(); //If limit is -1 play guess game with unlimited guesses
@@ -158,9 +154,8 @@ private void selectGame() {
 }
 
 private void endGame(){ //Gives the prompt to play mastermind over again
-   Scanner restart = new Scanner(System.in);
    System.out.println("Do you want to play again? Type Yes or No");
-   String replay = restart.next(); //Scanner for yes or no
+   String replay = scan.next(); //Scanner for yes or no
    while (true) {
       if (replay.toLowerCase().equals("yes")) {
          selectGame(); //Goes back to select game prompt
@@ -168,7 +163,7 @@ private void endGame(){ //Gives the prompt to play mastermind over again
       } else if (replay.toLowerCase().equals("no")) {
          break; //Stops game
       }
-      replay = restart.next(); //waits for "yes" or "no" input if previous string was invalid
+      replay = scan.next(); //waits for "yes" or "no" input if previous string was invalid
    }
 }
 
