@@ -183,8 +183,8 @@ private String checkGuess(String str,boolean flag){
    return guess;
    }
    
-//Ensure that your output matches expected output
-public static void main(String[] args){
+//checkGuess tests from class (java Mastermind test)
+public static void runTests(){
    Mastermind myGame = new Mastermind("ABCDEFG");
    myGame.setAnswer("ACAD");
     System.out.println("Expected null " + myGame.checkGuess("ABCDEFG",true));
@@ -197,9 +197,15 @@ public static void main(String[] args){
     System.out.println("Expected **$* " + myGame.checkGuess("CDAA",false));
     System.out.println("Expected $$$$ " + myGame.checkGuess("ACAD",true));
     System.out.println("Expected $$$$ " + myGame.checkGuess("ACAD",false));
-    Mastermind game = new Mastermind("ABCDEFG");
-    game.selectGame();
-    
+}
+
+public static void main(String[] args){
+   if (args.length > 0 && args[0].equals("test")) {
+      runTests();
+   } else {
+      Mastermind game = new Mastermind("ABCDEFG");
+      game.selectGame();
+   }
 }
 
 }   
